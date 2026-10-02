@@ -23,13 +23,13 @@
 
 #include "token.h"
 
-const char escapeChars[] = {'\'', '\"', '\?', '\\', 'a', 'b', 'f', 'n', 'r', 't', 'v'};
+const char escapeChars[] = {'\'', '\"', '\?', '\\', 'a', 'b', 'f', 'n', 'r', 't', 'v', 'e'};
 
-const char escapeVals[] = {0x27, 0x22, 0x3F, 0x5C, 0x07, 0x08, 0x0C, 0x0A, 0x0D, 0x09, 0x0B};
+const char escapeVals[] = {0x27, 0x22, 0x3F, 0x5C, 0x07, 0x08, 0x0C, 0x0A, 0x0D, 0x09, 0x0B, 0x1B};
 
 char escval (char c)
 {
-    for (int8_t i = 0; i < 11; i++) {
+    for (int8_t i = 0; i < sizeof(escapeChars); i++) {
         if (c == escapeChars[i]) {
             return escapeVals[i];
         }
